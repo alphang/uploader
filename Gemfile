@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'jquery-rails'
+gem "paperclip", "~> 3.0" #uploading files to models
+gem "dynamic_form", "~> 1.1.4" #error messages
+gem "launchy", "~> 2.2.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,10 +21,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -38,3 +36,15 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-debugger'
+end
+

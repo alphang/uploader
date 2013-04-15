@@ -1,0 +1,7 @@
+<title><% @document.title %></title>
+
+<h2><%= @document.title %></h2>
+
+<p>
+  <%= link_to File.basename(@document.asset_file_name), @document.asset.url %>
+</p>
