@@ -1,3 +1,7 @@
+# Config files #
+###################
+/config/aws.yml
+
 # Rails stuff #
 ###################
 
