@@ -20,15 +20,13 @@ class DocumentsController < ApplicationController
         format.html do
           redirect_to @document
         end
-        format.js
+        format.json { head :ok }
       else
         flash[:alert] = "An error occured. Document has not been created."
         format.html do
           render :action => "new"
         end
-        format.js do
-          render :action => "new"
-        end
+        format.json { render :json => @document.errors, :status => :unprocessable_entity }
       end
     end
   end
