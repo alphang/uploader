@@ -13,12 +13,23 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(params[:document])
-    if @document.save
-      flash[:notice] = "Document has been created."
-      redirect_to @document
-    else
-      flash[:alert] = "An error occured. Document has not been created."
-      render :action => "new"
+
+    respond_to do |format|
+      if @document.save
+        flash[:notice] = "Document has been created."
+        format.html do
+          redirect_to @document
+        end
+        format.js
+      else
+        flash[:alert] = "An error occured. Document has not been created."
+        format.html do
+          render :action => "new"
+        end
+        format.js do
+          render :action => "new"
+        end
+      end
     end
   end
 end

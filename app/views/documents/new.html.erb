@@ -1,6 +1,15 @@
 <h2>Upload a New Document</h2>
 
-<%= form_for @document do |f| %>
+<%= javascript_tag do %>
+ Dropzone.options.newDocument = {
+  paramName: "document[asset]", // The name that will be used to transfer the file
+  maxFilesize: 2, // MB
+  enqueueForUpload: true
+};
+<% end %>
+
+<%= form_for @document, :html => {:class => "dropzone"} do |f| %>
+<%#= form_for @document do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :title %> <br/>
@@ -8,7 +17,9 @@
   </p>
   <p>
     <%= f.label :asset, 'Attachment' %> <br/>
-    <%= f.file_field :asset %>
+    <div class="fallback">
+      <%= f.file_field :asset %>
+    </div>
   </p>
   <%= f.submit "Upload Document" %>
 
