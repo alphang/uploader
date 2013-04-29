@@ -1,0 +1,5 @@
+<% if @document.new_record? %>
+  alert("Failed to upload document: <%= j @document.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $(".new_document").append("<p><%= j link_to File.basename(@document.asset_file_name), @document.asset.url %></p>");
+<% end %>
