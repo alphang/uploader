@@ -2,6 +2,8 @@
 
 Uploader is a sample app that uses the *[Paperclip](https://github.com/thoughtbot/paperclip)* and *[jquery-fileupload](https://github.com/tors/jquery-fileupload-rails)* gems to allow users to upload files via drag and drop. Files are hosted on Amazon S3.
 
+For more information on how to use jquery-fileupload, see [Railscast #381]()
+
 ## AWS credentials
 
 Uploader is set up to use Amazon S3 to host the files. To use S3, you'll need to create a file to store your credentials at ./config/aws.yml
