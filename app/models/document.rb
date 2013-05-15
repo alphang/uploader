@@ -9,6 +9,6 @@ class Document < ActiveRecord::Base
     :path => '/:class/:attachment/:id_partition/:style/:filename'
 
   validates_attachment :asset, :presence => true,
-    :content_type => {:content_type => "text/plain"},
-    :size => { :in => 0..10.kilobytes }
+    :content_type => {:content_type => "image/png"},
+    :size => { :in => 0..30.kilobytes }
 end
